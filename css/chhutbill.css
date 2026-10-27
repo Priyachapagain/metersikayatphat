@@ -1,0 +1,230 @@
+/* ═══ छुट बिल टिप्पणी (ChhutBill) module styles — unique classes ═══
+   Shared classes (nb-container, nb-step, nb-card, sk-*, nb-tbl, nb-doc…)
+   come from base.css. Only chhut-bill-specific rules live here. */
+
+.nb-steps{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;border-bottom:2px solid #e2e8f0;padding-bottom:12px}
+.nb-step{flex:1;min-width:140px;padding:10px 14px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:6px;font-weight:600;font-size:14px;cursor:pointer;transition:all .2s ease;text-align:center}
+.nb-step.on{background:#1e40af;color:#fff;border-color:#1e40af;box-shadow:0 4px 6px -1px rgba(30,64,175,.2)}
+.nb-card{display:none;background:#fff;border:1px solid #e2e8f0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.05);overflow:hidden}
+.nb-card.on{display:block}
+.sk-ch{background:#f1f5f9;padding:16px 20px;border-bottom:1px solid #e2e8f0}
+.sk-ch-t{font-size:18px;font-weight:700;color:#1e293b}
+.sk-cb{padding:24px;display:flex;flex-direction:column;gap:20px}
+.nb-mp{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;margin-bottom:4px}
+.nb-mp-label{display:block;font-size:13px;font-weight:600;color:#475569;margin-bottom:6px}
+.nb-mp-label small{font-weight:400;color:#94a3b8}
+.nb-mp-paste{width:100%;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:6px;padding:9px 11px;font-family:'Courier New',monospace;font-size:12px;line-height:1.5;resize:vertical}
+.nb-mp-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.nb-mp-status{font-size:12.5px;font-weight:600}
+.nb-addr-section{margin-top:4px}
+.nb-addr-label{font-size:12.5px;font-weight:700;color:#334155;margin-bottom:8px}
+.nb-addr-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px}
+.nb-addr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.nb-addr-grid{grid-template-columns:1fr}}
+.nb-addr-preview{margin-top:10px;padding:8px 12px;background:#fff;border:1px solid #e2e8f0;border-radius:7px;font-size:13px;color:#475569;min-height:36px}
+.sk-form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.sk-f{display:flex;flex-direction:column;gap:6px;width:100%}
+.sk-f label{font-size:14px;font-weight:600;color:#475569}
+.sk-f input,.sk-f select,.sk-f textarea{width:100%;padding:10px 14px;border:1px solid #cbd5e1;border-radius:6px;font-size:14px;box-sizing:border-box;color:#1e293b;transition:border .2s;font-family:inherit;background:#fff}
+.sk-f input:focus,.sk-f select:focus{border-color:#2563eb;outline:none}
+.nb-sec-label{font-size:13px;font-weight:700;color:#334155}
+.nb-nav{display:flex;justify-content:space-between;gap:12px;margin-top:12px;border-top:1px solid #e2e8f0;padding-top:16px}
+.nb-nav:has(.nb-next:first-child){justify-content:flex-end}
+.sk-btn{padding:10px 20px;font-size:14px;font-weight:600;border-radius:6px;cursor:pointer;border:1px solid transparent;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:inherit}
+.sk-bp{background:#2563eb;color:#fff}
+.sk-bp:hover{background:#1d4ed8}
+.sk-bg{background:#f1f5f9;color:#475569;border-color:#cbd5e1}
+.sk-bg:hover{background:#e2e8f0}
+.sk-bn{background:#059669;color:#fff}
+.sk-bn:hover{background:#047857}
+/* category boxes */
+.nb-cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:720px){.nb-cat-grid{grid-template-columns:1fr}}
+.nb-catbox{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px}
+.nb-catbox.old{border-top:4px solid #94a3b8}
+.nb-catbox.new{border-top:4px solid #2563eb}
+.nb-catbox h4{margin:0 0 10px;font-size:14px;color:#334155}
+.nb-catbox.new h4{color:#1e40af}
+.nb-hint{font-size:12.5px;color:#64748b;margin-top:10px;line-height:1.6}
+.nb-loss{display:flex;gap:8px;align-items:flex-start;margin-top:12px;font-size:13px;font-weight:600;color:#334155;cursor:pointer}
+.nb-loss input{width:auto;margin-top:3px}
+.nb-regnote{font-size:12.5px;color:#1e40af;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:9px 12px;line-height:1.6;margin-top:4px}
+/* month table */
+.nb-tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.nb-tbl th,.nb-tbl td{border:1px solid #e2e8f0;padding:7px 8px;text-align:center}
+.nb-tbl th{background:#f1f5f9;color:#334155;font-size:12.5px}
+.nb-tbl td input,.nb-tbl td select{width:100%;box-sizing:border-box;border:1px solid #e2e8f0;border-radius:5px;padding:6px;font-family:inherit;font-size:13.5px;text-align:center;background:#fff}
+.nb-tbl td input:focus,.nb-tbl td select:focus{border-color:#2563eb;outline:none}
+.nb-tbl td input[readonly]{background:#f1f5f9;color:#475569}
+.nb-tbl td.num{text-align:right;font-variant-numeric:tabular-nums}
+.nb-tbl tr.total td{font-weight:700;background:#eff6ff;color:#1e40af}
+.nb-x{background:#fee2e2;color:#b91c1c;border:none;border-radius:5px;padding:4px 9px;cursor:pointer;font-weight:700}
+.todw{display:none;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-top:4px}
+.todw input{font-size:11px !important;padding:4px !important}
+.nb-reg-badge{display:inline-block;font-size:10.5px;color:#1e40af;background:#eff6ff;border:1px solid #bfdbfe;border-radius:4px;padding:1px 5px;margin-top:3px}
+/* stats */
+.nb-stats{display:flex;gap:12px;flex-wrap:wrap}
+.nb-stat{flex:1;min-width:170px;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;background:#f8fafc}
+.nb-stat .l{font-size:12px;color:#64748b;font-weight:600}
+.nb-stat .v{font-size:19px;font-weight:700;color:#1e293b;font-variant-numeric:tabular-nums}
+.nb-stat.diff{background:#eff6ff;border-color:#2563eb}
+.nb-stat.diff .v{color:#1e40af}
+/* authority box */
+.nb-auth-box{background:#fffbeb;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px}
+.nb-auth-box .nb-addr-label{color:#92400e}
+.nb-auth-note{font-size:12.5px;color:#92400e;margin-top:8px;line-height:1.6}
+/* ─── printable documents ─── */
+.nb-doc{background:#fff;padding:36px 44px;color:#000;border:1px solid #94a3b8;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+/* simple calculation sheet (excel-style) */
+.nb-calc-head{text-align:center;line-height:1.5;margin-bottom:14px}
+.nb-calc-head .o{font-size:19px;font-weight:800}
+.nb-calc-head .c{font-size:16px;font-weight:700}
+.nb-calc-head .t{font-size:16px;font-weight:800;text-decoration:underline;margin-top:4px}
+.nb-calc-meta{font-size:13.5px;margin-bottom:8px;display:grid;grid-template-columns:120px 1fr 108px 1fr;row-gap:3px;column-gap:6px;align-items:baseline;line-height:1.45}
+.nb-calc-meta .lb{font-weight:700}
+.nb-calc-meta .full{grid-column:2/5}
+.nb-doc-tbl{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}
+.nb-doc-tbl th,.nb-doc-tbl td{border:1px solid #475569;padding:5px 7px;text-align:center}
+.nb-doc-tbl th{background:#f1f5f9}
+.nb-doc-tbl td.num{text-align:right;font-variant-numeric:tabular-nums}
+.nb-doc-tbl tr.total td{font-weight:800;background:#f1f5f9}
+.nb-amt-words{font-size:14px;margin-top:6px}
+.nb-sig-row{display:flex;justify-content:space-between;margin-top:64px;text-align:center;gap:10px}
+.nb-sig .ln{border-top:1.5px dotted #333;padding-top:6px;min-width:160px;font-size:14px;font-weight:600}
+/* tippani (PDF-style) */
+.nb-tip-head{text-align:center;line-height:1.5}
+.nb-tip-head .o{font-size:20px;font-weight:800}
+.nb-tip-head .c{font-size:16px;font-weight:700}
+.nb-tip-head .k{font-size:15px;font-weight:600;margin-top:2px}
+.nb-tip-to{display:flex;justify-content:space-between;align-items:flex-end;margin-top:24px;font-size:15px;font-weight:600}
+.nb-tip-subj{text-align:center;font-size:15.5px;font-weight:800;margin:16px 0 14px}
+.nb-tip-sec{margin-top:14px}
+.nb-tip-sec .h{font-size:15px;font-weight:800;text-decoration:underline;margin-bottom:4px}
+.nb-tip-sec .b{font-size:14.5px;line-height:1.95;text-align:justify;text-indent:2.5em}
+.nb-tip-sec .b.noind{text-indent:0}
+@media print{
+  @page{size:A4;margin:14mm 14mm 12mm}
+  html,body{margin:0;padding:0;background:#fff;height:auto}
+  body.nb-printing #nb-root{display:none}
+  #nb-print-wrap{width:100%}
+  .nb-doc{border:none;box-shadow:none;border-radius:0;padding:0;margin:0;max-width:100%;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .nb-doc-tbl{font-size:12px}
+  .nb-sig-row{margin-top:34px}
+  .nb-pgbrk{break-before:page;page-break-before:always;border-top:none;margin-top:0;padding-top:0}
+  .nb-pgbrk::before{content:none}
+  .nb-tip-sec{break-inside:avoid;page-break-inside:avoid}
+  .nb-sig-row{break-inside:avoid;page-break-inside:avoid}
+  /* सादा कालो-सेतो प्रिन्ट — कुनै रंग/ब्याकग्राउन्ड छैन; अक्षर हल्का/धमिलो नदेखियोस् भनेर
+     वजन नबढाई कालोपन बढाउने ट्रिक (text-shadow) पनि जोडिएको — लेआउट/wrapping मा असर पर्दैन */
+  .nb-doc,.nb-doc *{
+    background:#fff !important;color:#000 !important;border-color:#000 !important;box-shadow:none !important;
+    text-shadow:none !important;
+    text-rendering:geometricPrecision;-webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto;
+  }
+  .nb-doc-tbl th,.nb-doc-tbl td{border-color:#000 !important;border-width:1px}
+  .nb-doc-tbl th,.nb-doc-tbl tr.total td{background:#fff !important;font-weight:800}
+  .nb-ed-tbl th.grp,.nb-ed-tbl th.g1,.nb-ed-tbl td.g1,.nb-ed-tbl th.g2,.nb-ed-tbl td.g2,.nb-ed-tbl th.d,.nb-ed-tbl td.d{background:#fff !important}
+  /* ग्याप घटाइएको — गणना तथा मेमो/टिप्पणी दुवैमा कम ठाउँ खपत हुने */
+  .nb-calc-head{margin-bottom:8px}
+  .nb-calc-meta{margin-bottom:5px;row-gap:1px}
+  .nb-doc-tbl{margin:6px 0}
+  .nb-tip-to{margin-top:14px}
+  .nb-tip-subj{margin:8px 0 6px}
+  .nb-tip-sec{margin-top:8px}
+  .nb-tip-sec .b{line-height:1.6}
+}
+/* ── छुट बिल गणना तालिका — डिमाण्ड / इनर्जी समूह ── */
+.nb-ed-tbl th.grp{text-align:center;background:#eef4fd;font-size:11.5px;line-height:1.35}
+.nb-ed-tbl th.grp span{display:block;font-size:9px;letter-spacing:.1em;color:#64748b;font-weight:600}
+.nb-ed-tbl th.g1,.nb-ed-tbl td.g1{background:#f5f9ff}   /* डिमाण्ड समूह */
+.nb-ed-tbl th.g2,.nb-ed-tbl td.g2{background:#f4fbf7}   /* इनर्जी समूह  */
+.nb-ed-tbl th.d,.nb-ed-tbl td.d{background:#fff7ed}     /* फरक स्तम्भ  */
+.nb-ed-tbl td.d{font-weight:600}
+.nb-ed-tbl .rt{white-space:nowrap;line-height:1.5}
+.nb-ed-tbl .rt b{display:inline-block;min-width:52px;color:#334155;font-weight:700}
+/* कक्षभित्रको सानो गणना पंक्ति — "24 kVA × 55.00" */
+.nb-ed-tbl .cw-rate{font-size:9.5px;color:#64748b;font-weight:500;margin-top:2px;white-space:nowrap}
+.nb-ed-tbl thead tr:last-child th span{display:block;font-size:8.5px;letter-spacing:.08em;color:#94a3b8;font-weight:600}
+
+/* ═══════════ टिप्पणी प्रिन्ट — दुई पाना ═══════════
+   पाना 1 : पृष्ठभूमि + बुँदा 1, 2  (पूरा पाना भरिने)
+   पाना 2 : बुँदा 3, 4, 5 + सही ब्लक
+   ─────────────────────────────────────────────────── */
+@media print{
+  /* ── टिप्पणी : ठ्याक्कै दुई पाना ──────────────────────────────────
+     A4 = 297mm; margin 14+12 → काम लाग्ने उचाइ ≈ 271mm।
+     पाना 1 मा लेटरहेड (~50mm) + विषय + पृष्ठभूमि + बुँदा 1,2 पर्छन्।
+     त्यसैले #nb-tip-body को पाना–1 भागलाई 165mm सम्म तन्काइन्छ —
+     पाना भरिन्छ तर **कहिल्यै बग्दैन** (पहिले 100vh प्रयोग गर्दा
+     प्रिन्टमा viewport ≠ page हुँदा तेस्रो पाना बन्थ्यो)।            */
+  /* पाना 1 स्वाभाविक रूपमा बग्छ — जबरजस्ती तन्काइँदैन (खाली ठाउँ बन्दैन) */
+  .nb-tip-p1{min-height:0}
+
+  /* बुँदा 3 बाट दोस्रो पाना सुरु */
+  .nb-tip-break{break-before:page;page-break-before:always}
+
+  /* दोस्रो पानाका बुँदा 3,4,5 + सही — बीचमा नटुट्ने, तेस्रो पाना नबन्ने */
+  .nb-tip-sec{break-inside:avoid;page-break-inside:avoid}
+  .nb-sig-wrap{break-inside:avoid;page-break-inside:avoid;break-after:avoid;page-break-after:avoid}
+  #nb-print-tippani .nb-sig-row{margin-top:34px}   /* ठाउँ बचाउने */
+  #nb-print-tippani .nb-tip-sec{margin-bottom:8px}
+  #nb-print-tippani{font-size:13.5px;line-height:1.5}
+}
+
+/* ═══════════ छुट बिल गणना विवरण — Landscape कम्प्याक्ट प्रिन्ट ═══════════
+   उद्देश्य : ठाउँ घटाएर थोरै पानामा अटाउने।
+   केवल #nb-print-calc मा मात्र लागू — टिप्पणी प्रिन्ट अछुतो रहन्छ।       */
+@media print{
+  #nb-print-calc{font-size:10px;line-height:1.25}
+
+  /* शीर्षक — सानो र खँदिलो */
+  #nb-print-calc .nb-calc-head{margin-bottom:5px;line-height:1.2}
+  #nb-print-calc .nb-calc-head .o{font-size:14px}
+  #nb-print-calc .nb-calc-head .c{font-size:11.5px}
+  #nb-print-calc .nb-calc-head .t{font-size:12px;margin-top:1px}
+
+  /* विवरण (meta) — पङ्क्ति दूरी घटाइएको */
+  #nb-print-calc .nb-calc-meta{font-size:10px;margin-bottom:4px;
+    row-gap:0;column-gap:5px;line-height:1.25;
+    grid-template-columns:92px 1fr 86px 1fr}
+
+  /* मुख्य तालिका — सबैभन्दा धेरै ठाउँ यहीँ बच्छ */
+  #nb-print-calc .nb-doc-tbl{font-size:9px;margin:5px 0}
+  #nb-print-calc .nb-doc-tbl th,
+  #nb-print-calc .nb-doc-tbl td{padding:1.5px 3px;line-height:1.2}
+  #nb-print-calc .nb-ed-tbl th.grp{font-size:9px;line-height:1.15}
+  #nb-print-calc .nb-ed-tbl th.grp span{font-size:7px}
+  #nb-print-calc .nb-ed-tbl thead tr:last-child th span{font-size:7px}
+  #nb-print-calc .nb-ed-tbl .cw-rate{font-size:7.5px;margin-top:0}
+  #nb-print-calc .nb-ed-tbl .rt b{min-width:40px}
+
+  /* अक्षरमा रकम + सही — तल थोरै ठाउँ */
+  #nb-print-calc .nb-amt-words{font-size:10px;margin-top:3px}
+  #nb-print-calc .nb-sig-row{margin-top:20px}
+  #nb-print-calc .nb-sig .ln{font-size:10px;padding-top:3px;min-width:120px}
+
+  /* तालिकाको शीर्षक हरेक पानामा दोहोरिने + पङ्क्ति बीचमा नटुट्ने */
+  #nb-print-calc .nb-doc-tbl thead{display:table-header-group}
+  #nb-print-calc .nb-doc-tbl tr{break-inside:avoid;page-break-inside:avoid}
+  #nb-print-calc .nb-sig-row{break-inside:avoid;page-break-inside:avoid}
+}
+
+/* ─── समय-खण्ड (time frame) — क्षमता वृद्धि / वर्ग परिवर्तन ─────────────── */
+.nb-seg-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:12px 14px;margin:12px 0 4px}
+.nb-seg-box .nb-loss{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#1e3a8a;cursor:pointer}
+.nb-seg-box .nb-addr-label{color:#1e40af}
+.nb-seg-tbl{margin-top:2px;background:#fff}
+.nb-seg-tbl th{background:#dbeafe;color:#1e3a8a}
+.nb-seg-tbl td{padding:5px 6px}
+.nb-seg-tbl td select,.nb-seg-tbl td input{font-size:12.5px;padding:5px}
+.nb-seg-tag{font-weight:400;font-size:11.5px;color:#2563eb}
+
+/* ठेगाना बाकस — सबै सानो / खँदिलो */
+.nb-addr-box.nb-addr-box{padding:9px 11px;border-radius:8px}
+.nb-addr-box .nb-addr-label{font-size:11.5px;margin-bottom:5px}
+.nb-addr-box .nb-addr-grid{gap:8px}
+.nb-addr-box .sk-f label{font-size:11.5px}
+.nb-addr-box .sk-f input,.nb-addr-box .sk-f select{height:auto;min-height:0;line-height:1.4;padding:4px 8px;font-size:12.5px;border-radius:5px}
+.nb-addr-box .sk-f[style*="margin-top"]{margin-top:6px !important}
+.nb-addr-box .nb-addr-preview{margin-top:6px;padding:5px 9px;font-size:12px;min-height:26px;border-radius:5px}
+.nb-addr-box .sk-btn{font-size:11px !important;padding:2px 8px !important}

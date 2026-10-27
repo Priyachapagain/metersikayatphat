@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>मिटर सिकायत फाँट | तौलिहवा वितरण केन्द्र</title>
+
+<!-- ═══ Stylesheets ═══ -->
+<link rel="stylesheet" href="css/base.css">      <!-- app shell, hub, shared nb-/sk- components (मिटर बदली + चोरी) -->
+<link rel="stylesheet" href="css/chhutbill.css"> <!-- छुट बिल टिप्पणी module-only styles -->
+
+<!-- देवनागरी फन्ट (इन्टरनेट नभए सिस्टम फन्टमा झर्छ) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- ═══ App shell — स्थिर साइडबार + माथिको हेडर + mount point ═══ -->
+<div id="app-shell">
+
+  <aside class="side">
+    <div class="side-brand">
+      <div class="side-name">NEA Taulihawa</div>
+      <div class="side-role">Distribution Centre Dashboard</div>
+    </div>
+
+    <div class="side-label">Main Navigation</div>
+    <nav class="side-nav" id="side-nav">
+      <button data-go="hub" class="active">
+        Home
+      </button>
+      <button data-go="meter">
+        Meter Replacement
+      </button>
+      <button data-go="chori">
+        Theft Evaluation
+      </button>
+      <button data-go="chhutbill">
+        Missed Billing
+      </button>
+    </nav>
+
+    <div class="side-foot">
+      <span class="dot"></span> Kapilvastu, Lumbini
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="tb-title">
+        <h1 id="page-title">Meter Shikayat Department</h1>
+        <p id="page-sub">नेपाल विद्युत प्राधिकरण • तौलिहवा वितरण केन्द्र</p>
+      </div>
+      <div class="clock">
+        <b id="clk-time">--:--:--</b>
+        <span id="clk-date">—</span>
+        <span class="clk-bs" id="clk-bs">—</span>
+      </div>
+    </header>
+    <div class="app-wrap" id="app"></div>
+  </div>
+
+</div>
+
+<!-- ═══ Scripts — load order matters ═══ -->
+<!-- 1) shared utilities (window.NBShared) — must load first -->
+<script src="js/shared.js"></script>
+<!-- 2) tariff / rate tables (window.NBTariff) — edit THIS file when NEA rates change -->
+<script src="js/tariff.js"></script>
+<!-- 3) workflow modules (each registers window.<Module> with a mount(root)) -->
+<script src="js/meter-badali.js"></script>
+<script src="js/meter-form.js"></script>
+<script src="js/chori.js"></script>
+<script src="js/chhutbill.js"></script>
+<!-- 3b) Excel इन्जिन (अफलाइन) + local auto-save — मिटर बदली र चोरी छुट्टाछुट्टै टेम्प्लेट/फाइलमा जान्छन्
+     (assets/Meter_Badali_Report_Template.xlsx अनि assets/Energy_Theft_Report_Template.xlsx) -->
+<script src="vendor/exceljs.min.js"></script>
+<script src="js/local-excel-save.js"></script>
+<!-- 4) hub / router — loads last, renders the landing page and mounts modules -->
+<script src="js/hub.js"></script>
+
+</body>
+</html>
